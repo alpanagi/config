@@ -8,8 +8,8 @@ plug('nvim-tree/nvim-web-devicons')
 
 plug('nvim-treesitter/nvim-treesitter')
 
-plug 'williamboman/mason.nvim'
-plug 'williamboman/mason-lspconfig.nvim'
+plug('williamboman/mason.nvim')
+plug('williamboman/mason-lspconfig.nvim')
 plug('neovim/nvim-lspconfig')
 
 plug('numToStr/Comment.nvim')
@@ -66,6 +66,11 @@ vim.keymap.set('n', '<leader>?', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>[', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<F2>', vim.diagnostic.goto_next)
 
+vim.keymap.set('n', '<leader>q', ':cclose<CR>')
+
+vim.keymap.set('n', '<F3>', ':DiffviewOpen ')
+vim.keymap.set('n', '<F4>', ':DiffviewClose<CR>')
+
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
@@ -95,6 +100,9 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fG', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+vim.keymap.set('n', '<leader>vs', builtin.git_status, {})
+vim.keymap.set('n', '<leader>vc', builtin.git_commits, {})
 
 vim.keymap.set('n', '<F8>', '<cmd>TroubleToggle<cr>')
 
@@ -144,6 +152,21 @@ require('telescope').setup {
         results_height = 0.3,
         preview_height = 0.7
       },
+    },
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+    }
+  },
+  pickers = {
+    find_files = {
+      hidden = true
     }
   }
 }
