@@ -25,7 +25,7 @@ plug('nvim-lualine/lualine.nvim')
 
 plug('lukas-reineke/indent-blankline.nvim')
 
--- plug('akinsho/bufferline.nvim')
+plug('akinsho/bufferline.nvim')
 
 plug('sindrets/diffview.nvim')
 
@@ -74,6 +74,9 @@ vim.keymap.set('n', '<leader>q', ':cclose<CR>')
 
 vim.keymap.set('n', '<F7>', ':DiffviewOpen ')
 vim.keymap.set('n', '<F8>', ':DiffviewClose<CR>')
+
+vim.keymap.set('n', 'g,', ':bp<CR>')
+vim.keymap.set('n', 'g.', ':bn<CR>')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -220,7 +223,7 @@ options = {
   extensions = {}
 })
 require('ibl').setup()
--- require('bufferline').setup()
+require('bufferline').setup()
 
 -- nvim-cmp
 local cmp = require('cmp')
