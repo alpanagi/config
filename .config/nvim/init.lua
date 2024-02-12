@@ -153,7 +153,7 @@ require('telescope').load_extension('fzf')
 require('Comment').setup()
 require('gitsigns').setup()
 require('lualine').setup()
-require('indent_blankline').setup()
+require('ibl').setup()
 require('bufferline').setup()
 
 -- nvim-cmp
