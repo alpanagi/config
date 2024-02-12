@@ -109,8 +109,6 @@ vim.keymap.set('n', '<leader>f<leader>', builtin.resume, {})
 vim.keymap.set('n', '<leader>vs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>vc', builtin.git_commits, {})
 
-vim.keymap.set('n', '<F8>', '<cmd>TroubleToggle<cr>')
-
 require("toggleterm").setup()
 vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm<cr>', {})
 
