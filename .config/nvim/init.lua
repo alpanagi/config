@@ -104,6 +104,7 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fG', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>f<leader>', builtin.resume, {})
 
 vim.keymap.set('n', '<leader>vs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>vc', builtin.git_commits, {})
