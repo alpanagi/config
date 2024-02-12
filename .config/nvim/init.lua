@@ -134,6 +134,7 @@ require("mason-lspconfig").setup()
 require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').tsserver.setup({})
 require('lspconfig').pyright.setup({})
+require('lspconfig').eslint.setup({})
 
 -- telescope
 require('telescope').setup {
