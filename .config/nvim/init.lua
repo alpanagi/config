@@ -61,6 +61,7 @@ vim.g.mapleader = ';'
 
 vim.keymap.set('n', '<F1>', '<nop>')
 vim.keymap.set('i', '<F1>', '<nop>')
+vim.keymap.set('n', '<F4>', ':%bd|e#|bd#<CR>')
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>E', ':NvimTreeFindFile<CR>')
@@ -71,8 +72,8 @@ vim.keymap.set('n', '<F2>', vim.diagnostic.goto_next)
 
 vim.keymap.set('n', '<leader>q', ':cclose<CR>')
 
-vim.keymap.set('n', '<F3>', ':DiffviewOpen ')
-vim.keymap.set('n', '<F4>', ':DiffviewClose<CR>')
+vim.keymap.set('n', '<F7>', ':DiffviewOpen ')
+vim.keymap.set('n', '<F8>', ':DiffviewClose<CR>')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
