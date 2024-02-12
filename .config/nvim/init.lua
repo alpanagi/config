@@ -46,6 +46,8 @@ vim.cmd[[colorscheme tokyonight-night]]
 -- global settings
 vim.opt.termguicolors = true
 
+vim.opt.swapfile = false
+
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
