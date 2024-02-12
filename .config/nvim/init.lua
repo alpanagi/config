@@ -38,6 +38,9 @@ plug('hrsh7th/vim-vsnip')
 plug('folke/trouble.nvim')
 
 plug('akinsho/toggleterm.nvim', { ['tag'] = '*' })
+
+plug('renerocksai/telekasten.nvim')
+
 vim.call('plug#end')
 
 -- theme
@@ -78,6 +81,21 @@ vim.keymap.set('n', '<F8>', ':DiffviewClose<CR>')
 vim.keymap.set('n', 'g,', ':bp<CR>')
 vim.keymap.set('n', 'g.', ':bn<CR>')
 
+-- Zettelkasten
+-- Launch panel if nothing is typed after <leader>z
+vim.keymap.set("n", "<leader>z", "<cmd>Telekasten panel<CR>")
+-- Most used functions
+vim.keymap.set("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
+vim.keymap.set("n", "<leader>zg", "<cmd>Telekasten search_notes<CR>")
+vim.keymap.set("n", "<leader>zd", "<cmd>Telekasten goto_today<CR>")
+vim.keymap.set("n", "<leader>zz", "<cmd>Telekasten follow_link<CR>")
+vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
+vim.keymap.set("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
+vim.keymap.set("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
+vim.keymap.set("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
+vim.keymap.set("n", "<leader>zl", "<cmd>Telekasten insert_link<CR>")
+
+
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
@@ -108,6 +126,7 @@ vim.keymap.set('n', '<leader>fG', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>f<leader>', builtin.resume, {})
+vim.keymap.set('n', '<leader><F2>', builtin.diagnostics, {})
 
 vim.keymap.set('n', '<leader>vs', builtin.git_status, {})
 vim.keymap.set('n', '<leader>vc', builtin.git_commits, {})
@@ -258,3 +277,49 @@ require('lspconfig')['gdscript'].setup {
   capabilities = capabilities
 }
 
+require('telekasten').setup({
+  home = vim.fn.expand("~/zettelkasten"),
+})
+
+require('gitsigns').setup {
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '[c', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    -- Actions
+    map('n', '<leader>hs', gs.stage_hunk)
+    map('n', '<leader>hr', gs.reset_hunk)
+    map('v', '<leader>hs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('n', '<leader>hS', gs.stage_buffer)
+    map('n', '<leader>hu', gs.undo_stage_hunk)
+    map('n', '<leader>hR', gs.reset_buffer)
+    map('n', '<leader>hp', gs.preview_hunk)
+    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+    map('n', '<leader>tb', gs.toggle_current_line_blame)
+    map('n', '<leader>hd', gs.diffthis)
+    map('n', '<leader>hD', function() gs.diffthis('~') end)
+    map('n', '<leader>td', gs.toggle_deleted)
+
+    -- Text object
+    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  end
+}
