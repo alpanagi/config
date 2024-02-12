@@ -25,7 +25,7 @@ plug('nvim-lualine/lualine.nvim')
 
 plug('lukas-reineke/indent-blankline.nvim')
 
-plug('akinsho/bufferline.nvim')
+-- plug('akinsho/bufferline.nvim')
 
 plug('sindrets/diffview.nvim')
 
@@ -58,11 +58,12 @@ vim.opt.number = true
 
 -- key binds
 vim.g.mapleader = ';'
+
+vim.keymap.set('n', '<F1>', '<nop>')
+vim.keymap.set('i', '<F1>', '<nop>')
+
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>E', ':NvimTreeFindFile<CR>')
-
-vim.keymap.set('n', '<Tab>', ':bn<CR>')
-vim.keymap.set('n', '<S-Tab>', ':bp<CR>')
 
 vim.keymap.set('n', '<leader>?', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>[', vim.diagnostic.goto_prev)
@@ -79,11 +80,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
         local opts = { buffer = ev.buf }
-        vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<leader>gT', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<C-K>', vim.lsp.buf.signature_help, opts)
@@ -180,7 +181,7 @@ require('Comment').setup()
 require('gitsigns').setup()
 require('lualine').setup()
 require('ibl').setup()
-require('bufferline').setup()
+-- require('bufferline').setup()
 
 -- nvim-cmp
 local cmp = require('cmp')
