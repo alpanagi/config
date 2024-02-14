@@ -51,8 +51,8 @@ vim.opt.termguicolors = true
 
 vim.opt.swapfile = false
 
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.expandtab = true
@@ -160,6 +160,7 @@ require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').tsserver.setup({})
 require('lspconfig').pyright.setup({})
 require('lspconfig').eslint.setup({})
+require('lspconfig').omnisharp.setup({})
 
 -- telescope
 require('telescope').setup {
