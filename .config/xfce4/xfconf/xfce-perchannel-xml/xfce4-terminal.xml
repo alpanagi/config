@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-terminal" version="1.0">
-  <property name="font-name" type="string" value="Hack Nerd Font Mono 16"/>
+  <property name="font-name" type="string" value="Hack Nerd Font Mono 22"/>
   <property name="color-use-theme" type="bool" value="false"/>
   <property name="color-background-vary" type="bool" value="false"/>
   <property name="misc-menubar-default" type="bool" value="false"/>
