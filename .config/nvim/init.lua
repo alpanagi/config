@@ -194,6 +194,13 @@ require('telescope').setup {
   pickers = {
     find_files = {
       hidden = true
+    },
+    buffers = {
+        sort_mru = true,
+        ignore_current_buffer = true
+    },
+    diagnostics = {
+        sort_by = "severity",
     }
   }
 }
