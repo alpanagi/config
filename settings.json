@@ -1,0 +1,45 @@
+{
+    "window.zoomLevel": 4,
+    "terminal.integrated.fontSize": 14,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.35,
+    "prettier.tabWidth": 4,
+    "editor.rulers": [80],
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.formatOnSave": true,
+    "extensions.ignoreRecommendations": true,
+    "window.commandCenter": false,
+    "workbench.startupEditor": "none",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Jetbrains Mono', monospace",
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.activityBar.location": "hidden",
+    "workbench.sideBar.location": "right",
+    "breadcrumbs.enabled": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.showFoldingControls": "never",
+    "workbench.layoutControl.enabled": false,
+    "terminal.integrated.tabs.description": " ",
+    "workbench.editor.tabActionCloseVisibility": false,
+    "window.density.editorTabHeight": "compact",
+    "editor.scrollbar.horizontal": "hidden",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.acceptSuggestionOnEnter": "off"
+}
