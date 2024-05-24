@@ -261,7 +261,13 @@ options = {
   extensions = {}
 })
 require("ibl").setup()
-require("bufferline").setup()
+require("bufferline").setup({
+    options = {
+        show_buffer_icons = false,
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+    }
+})
 
 -- nvim-cmp
 local cmp = require("cmp")
