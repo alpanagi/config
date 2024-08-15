@@ -137,6 +137,7 @@ conform.setup({
 		lua = { "stylua" },
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
+        rust = { { "rustfmt" } },
         json = { { "prettierd", "prettier" } }
 	},
 })
