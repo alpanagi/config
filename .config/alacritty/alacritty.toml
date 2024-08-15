@@ -1,0 +1,9 @@
+[font]
+normal = { family = "JetBrains Mono", style = "Regular" }
+size = 16
+
+[window]
+decorations = "none"
+
+[env]
+TERM = "xterm-256color"
