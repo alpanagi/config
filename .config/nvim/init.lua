@@ -137,6 +137,7 @@ conform.setup({
 		lua = { "stylua" },
 		javascript = { { "prettierd", "prettier" } },
 		typescript = { { "prettierd", "prettier" } },
+        json = { { "prettierd", "prettier" } }
 	},
 })
 
@@ -170,7 +171,6 @@ require("nvim-tree").setup({
 	},
 	view = {
 		adaptive_size = true,
-		width = 60,
 		side = "right",
 	},
 })
@@ -226,7 +226,8 @@ require("telescope").setup({
 	},
 	pickers = {
 		find_files = {
-			hidden = true,
+            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            hidden = true
 		},
 		buffers = {
 			sort_mru = true,
@@ -235,6 +236,9 @@ require("telescope").setup({
 		diagnostics = {
 			sort_by = "severity",
 		},
+        extensions = {
+            "fzf"
+        }
 	},
 })
 require("telescope").load_extension("fzf")
