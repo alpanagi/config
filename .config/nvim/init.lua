@@ -196,6 +196,7 @@ require("lspconfig").pyright.setup({})
 require("lspconfig").eslint.setup({})
 require("lspconfig").omnisharp.setup({})
 require("lspconfig").graphql.setup({})
+require("lspconfig").clangd.setup({})
 
 -- telescope
 require("telescope").setup({
