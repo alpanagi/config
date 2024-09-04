@@ -28,6 +28,7 @@ screen_output = subprocess.run(
     ).stdout.decode('utf-8')
 screen_line = next(x for x in screen_output.split("\n") if "1440" in x)
 screen = screen_line.split()[0]
+screen = "HDMI-0"
 
 screen_width = 2560
 screen_height = 1440
@@ -36,7 +37,7 @@ tablet_width = 21600
 adjusted_width = screen_height * (tablet_width / tablet_height)
 offset = (2560 - adjusted_width) / 2
 resolution_string = f'{int(adjusted_width)}x1440+{int(offset)}+0'
-print(resolution_string)
+print(resolution_string, screen)
 
 os.system(f'xinput map-to-output {pad} {screen}')
 os.system(f'xsetwacom set {stylus} MapToOutput {resolution_string}')

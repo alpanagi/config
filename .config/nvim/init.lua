@@ -129,6 +129,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- conform
 conform = require("conform")
 conform.setup({
+    formatters = {
+        jq = {
+            args = { "--indent", "4" }
+        }
+    },
 	format_on_save = {
 		timeout_ms = 500,
 		lsp_fallback = true,
@@ -139,7 +144,8 @@ conform.setup({
 		typescript = { "prettierd" },
         rust = { "rustfmt" },
         json = { "jq" },
-		cpp = { "clang-format" }
+        jsonc = { "jq" },
+        cpp = { "clang-format" }
 	},
 })
 
