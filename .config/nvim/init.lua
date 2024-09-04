@@ -135,10 +135,11 @@ conform.setup({
 	},
 	formatters_by_ft = {
 		lua = { "stylua" },
-		javascript = { { "prettierd", "prettier" } },
-		typescript = { { "prettierd", "prettier" } },
-        rust = { { "rustfmt" } },
-        json = { { "prettierd", "prettier" } }
+		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+        rust = { "rustfmt" },
+        json = { "jq" },
+		cpp = { "clang-format" }
 	},
 })
 
